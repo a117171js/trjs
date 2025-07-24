@@ -179,13 +179,12 @@ const worker_default = {
             // return new Response('Not found', { status: 404 });
             // For any other path, reverse proxy to 'ramdom website' and return the original response, caching it in the process
             if (cn_hostnames.includes('')) {
-            return new Response(JSON.stringify(request.cf, null, 4), {
+            return new Response(await nginx(), {
               status: 200,
               headers: {
-                "Content-Type": "application/json;charset=utf-8",
+                'Content-Type': 'text/html; charset=UTF-8',
               },
             });
-            }
             const randomHostname = cn_hostnames[Math.floor(Math.random() * cn_hostnames.length)];
             const newHeaders = new Headers(request.headers);
             newHeaders.set("cf-connecting-ip", "1.2.3.4");
