@@ -3,7 +3,7 @@ import { connect } from "cloudflare:sockets";
  
 let Pswd = "v2raytrojan";
 const proxyIPs = ["us.cfpyip.dpdns.org:443"];
-let cn_hostnames = [""];
+let cn_hostnames = [''];
 let CDNIP = '\u0077\u0077\u0077\u002e\u0076\u0069\u0073\u0061\u002e\u0063\u006f\u006d\u002e\u0073\u0067'
 // http_ip
 let IP1 = '\u0077\u0077\u0077\u002e\u0076\u0069\u0073\u0061\u002e\u0063\u006f\u006d'
@@ -182,10 +182,10 @@ const worker_default = {
             return new Response(await nginx(), {
               status: 200,
               headers: {
-                'Content-Type': 'text/html; charset=UTF-8',
+                "Content-Type": "text/html;charset=utf-8",
               },
             });
-	
+            }
             const randomHostname = cn_hostnames[Math.floor(Math.random() * cn_hostnames.length)];
             const newHeaders = new Headers(request.headers);
             newHeaders.set("cf-connecting-ip", "1.2.3.4");
